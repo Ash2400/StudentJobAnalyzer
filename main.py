@@ -6,6 +6,7 @@ from analyzer import Analyzer
 from ml_model import MLModel
 from evaluator import Evaluator
 from charts import Charts
+from job_selector import JobSelector
 from datetime import datetime
 
 # ============================================
@@ -44,28 +45,13 @@ def get_student_skills():
         print("  [!] Please enter at least one skill.")
 
 # ============================================
-# HELPER — Get job description input
-# ============================================
-def get_job_description():
-    print_separator("STEP 2 — Paste Job Description")
-    print("\n  Paste the job description below.")
-    print("  Press ENTER twice when done.\n")
-    lines = []
-    while True:
-        line = input()
-        if line == "":
-            if lines:
-                break
-        else:
-            lines.append(line)
-    return " ".join(lines)
-
-# ============================================
 # HELPER — Print analysis results
 # ============================================
-def print_results(result):
+def print_results(result, job_title, company):
     print_separator("ANALYSIS RESULTS")
 
+    print(f"\n  Job:     {job_title}")
+    print(f"  Company: {company}")
     print(f"\n  Match Score: {result['match_score']}%")
 
     # matched skills
@@ -152,31 +138,39 @@ def main():
     knn = MLModel(dm, 'knn')
     models = [rf, lr, knn]
 
-    # evaluator and charts
+    # evaluator charts and job selector
     ev = Evaluator(models)
     ch = Charts(student_name=dm.student_name)
     analyzer = Analyzer(dm)
+    js = JobSelector(dm)
 
     # print algorithm comparison
     ev.print_comparison_table()
 
     # main loop
     while True:
+        # get student skills
         student_input = get_student_skills()
-        job_description = get_job_description()
 
+        # select job from csv
+        job_description, job_title, company = js.choose_job()
+
+        # analyze
         result = analyzer.analyze(student_input, job_description)
 
         if result is None:
-            print("\n  [!] Could not analyze. Try a different job description.")
+            print("\n  [!] No recognizable skills found in job.")
             continue
 
-        print_results(result)
+        # show results
+        print_results(result, job_title, company)
         print_predictions(models, result)
         print_recommendations(result)
 
         # save analysis
         result['date'] = datetime.now().strftime("%Y-%m-%d %H:%M")
+        result['job_title'] = job_title
+        result['company'] = company
         dm.save_analysis(result)
 
         # generate charts
@@ -193,7 +187,6 @@ def main():
             print_separator("GOODBYE")
             print(f"\n  Goodbye {name.title()}!")
             print(f"  Your progress has been saved.")
-            print(f"  Charts saved to output/ folder.")
             print("\n" + "=" * 55 + "\n")
             break
 

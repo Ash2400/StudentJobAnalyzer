@@ -12,6 +12,7 @@ SKILLS_FILE = "data/skills.csv"
 ALIASES_FILE = "data/aliases.json"
 TRAINING_FILE = "data/training_data.csv"
 HISTORY_DIR = "data/history"
+JOBS_FILE = "data/jobs.csv"
 
 
 # ============================================
@@ -23,6 +24,7 @@ class DataManager:
         self.skills_df = None
         self.aliases = {}
         self.training_df = None
+        self.jobs_df = None
         self.history = []
         self.student_name = None
         self.history_file = None
@@ -35,7 +37,7 @@ class DataManager:
         self.skills_df = self.load_skills()
         self.aliases = self.load_aliases()
         self.training_df = self.load_training_data()
-
+        self.jobs_df = self.load_jobs()
     # ----------------------------------------
     # Set student name and load their history
     # ----------------------------------------
@@ -85,6 +87,18 @@ class DataManager:
             return df
         except FileNotFoundError:
             print("[ERROR] training_data.csv not found")
+            return pd.DataFrame()
+
+    # ----------------------------------------
+    # Load jobs.csv
+    # ----------------------------------------
+    def load_jobs(self):
+        try:
+            df = pd.read_csv(JOBS_FILE)
+            print(f"[OK] Loaded {len(df)} jobs from jobs.csv")
+            return df
+        except FileNotFoundError:
+            print("[ERROR] jobs.csv not found")
             return pd.DataFrame()
 
     # ----------------------------------------
@@ -146,3 +160,9 @@ class DataManager:
     # ----------------------------------------
     def get_history(self):
         return self.history
+    
+    # ----------------------------------------
+    # Get jobs dataframe
+    # ----------------------------------------
+    def get_jobs(self):
+        return self.jobs_df
