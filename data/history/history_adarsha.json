@@ -1,0 +1,89 @@
+[
+    {
+        "student_skills": [
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "pandas"
+        ],
+        "job_skills": [
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "numpy",
+            "pandas",
+            "matplotlib",
+            "teamwork"
+        ],
+        "matched": [
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "pandas"
+        ],
+        "missing": [
+            "teamwork",
+            "matplotlib",
+            "numpy"
+        ],
+        "extra": [],
+        "match_score": 62.5,
+        "matched_count": 5,
+        "missing_count": 3,
+        "total_required": 8,
+        "recommendation_message": "Good match. Work on missing skills before applying.",
+        "recommendations": [
+            "Learn: teamwork",
+            "Learn: matplotlib",
+            "Learn: numpy"
+        ],
+        "date": "2026-09-22 13:17"
+    },
+    {
+        "student_skills": [
+            "scikit-learn",
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "numpy",
+            "pandas",
+            "matplotlib",
+            "teamwork"
+        ],
+        "job_skills": [
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "numpy",
+            "pandas",
+            "matplotlib",
+            "teamwork"
+        ],
+        "matched": [
+            "python",
+            "sql",
+            "git",
+            "communication",
+            "numpy",
+            "pandas",
+            "matplotlib",
+            "teamwork"
+        ],
+        "missing": [],
+        "extra": [
+            "scikit-learn"
+        ],
+        "match_score": 100.0,
+        "matched_count": 8,
+        "missing_count": 0,
+        "total_required": 8,
+        "recommendation_message": "Strong match! You can apply confidently.",
+        "recommendations": [],
+        "date": "2026-09-22 13:18"
+    }
+]

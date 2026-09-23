@@ -1,0 +1,187 @@
+skill,category
+Python,Programming
+Java,Programming
+JavaScript,Programming
+C++,Programming
+C#,Programming
+R,Programming
+Swift,Programming
+Kotlin,Programming
+Go,Programming
+Rust,Programming
+TypeScript,Programming
+PHP,Programming
+Ruby,Programming
+Scala,Programming
+MATLAB,Programming
+Shell Scripting,Programming
+Bash,Programming
+Perl,Programming
+SQL,Database
+MySQL,Database
+PostgreSQL,Database
+MongoDB,Database
+SQLite,Database
+Oracle,Database
+Microsoft SQL Server,Database
+Redis,Database
+Cassandra,Database
+DynamoDB,Database
+Firebase,Database
+Elasticsearch,Database
+Git,Tools
+Docker,Tools
+Kubernetes,Tools
+Linux,Tools
+Excel,Tools
+PowerPoint,Tools
+Tableau,Tools
+Power BI,Tools
+JIRA,Tools
+Confluence,Tools
+Postman,Tools
+VS Code,Tools
+Jenkins,Tools
+Ansible,Tools
+Terraform,Tools
+Figma,Tools
+Adobe XD,Tools
+Photoshop,Tools
+Illustrator,Tools
+Django,Web Development
+Flask,Web Development
+FastAPI,Web Development
+HTML,Web Development
+CSS,Web Development
+React,Web Development
+Node.js,Web Development
+Angular,Web Development
+Vue.js,Web Development
+Spring Boot,Web Development
+Laravel,Web Development
+Ruby on Rails,Web Development
+GraphQL,Web Development
+REST API,Web Development
+Bootstrap,Web Development
+jQuery,Web Development
+Next.js,Web Development
+Express.js,Web Development
+NumPy,Data Science
+Pandas,Data Science
+Matplotlib,Data Science
+Seaborn,Data Science
+Scikit-learn,Data Science
+TensorFlow,Data Science
+PyTorch,Data Science
+Keras,Data Science
+Machine Learning,Data Science
+Deep Learning,Data Science
+Data Analysis,Data Science
+Data Visualization,Data Science
+Natural Language Processing,Data Science
+Computer Vision,Data Science
+OpenCV,Data Science
+Hugging Face,Data Science
+XGBoost,Data Science
+LightGBM,Data Science
+Statistical Analysis,Data Science
+Data Mining,Data Science
+Feature Engineering,Data Science
+Model Deployment,Data Science
+MLflow,Data Science
+Apache Spark,Data Science
+Hadoop,Data Science
+AWS,Cloud
+Azure,Cloud
+Google Cloud,Cloud
+Heroku,Cloud
+Digital Ocean,Cloud
+AWS Lambda,Cloud
+AWS S3,Cloud
+AWS EC2,Cloud
+Google BigQuery,Cloud
+Snowflake,Cloud
+Communication,Soft Skill
+Teamwork,Soft Skill
+Leadership,Soft Skill
+Problem Solving,Soft Skill
+Critical Thinking,Soft Skill
+Time Management,Soft Skill
+Attention to Detail,Soft Skill
+Adaptability,Soft Skill
+Creativity,Soft Skill
+Collaboration,Soft Skill
+Presentation Skills,Soft Skill
+Project Management,Soft Skill
+Decision Making,Soft Skill
+Conflict Resolution,Soft Skill
+Mentoring,Soft Skill
+Agile,Project Management
+Scrum,Project Management
+Kanban,Project Management
+Waterfall,Project Management
+DevOps,Project Management
+CI/CD,Project Management
+Unit Testing,Testing
+Integration Testing,Testing
+Selenium,Testing
+Jest,Testing
+PyTest,Testing
+JUnit,Testing
+Test Driven Development,Testing
+Quality Assurance,Testing
+Linear Regression,Machine Learning
+Logistic Regression,Machine Learning
+Decision Trees,Machine Learning
+Random Forest,Machine Learning
+Support Vector Machine,Machine Learning
+K-Nearest Neighbors,Machine Learning
+K-Means Clustering,Machine Learning
+Neural Networks,Machine Learning
+Convolutional Neural Networks,Machine Learning
+Recurrent Neural Networks,Machine Learning
+Transfer Learning,Machine Learning
+Reinforcement Learning,Machine Learning
+Cryptography,Cybersecurity
+Network Security,Cybersecurity
+Penetration Testing,Cybersecurity
+Ethical Hacking,Cybersecurity
+Firewall,Cybersecurity
+iOS Development,Mobile Development
+Android Development,Mobile Development
+React Native,Mobile Development
+Flutter,Mobile Development
+Xamarin,Mobile Development
+Accounting,Finance
+Financial Modeling,Finance
+Risk Management,Finance
+Bloomberg Terminal,Finance
+Quantitative Analysis,Finance
+Microsoft Word,Productivity
+Microsoft Office,Productivity
+Google Workspace,Productivity
+Slack,Productivity
+Zoom,Productivity
+Trello,Productivity
+Notion,Productivity
+Content Writing,Marketing
+SEO,Marketing
+Social Media Marketing,Marketing
+Google Analytics,Marketing
+Email Marketing,Marketing
+Copywriting,Marketing
+Brand Management,Marketing
+Market Research,Marketing
+AutoCAD,Engineering
+SolidWorks,Engineering
+ANSYS,Engineering
+Circuit Design,Engineering
+Embedded Systems,Engineering
+PLC Programming,Engineering
+Research,Academic
+Academic Writing,Academic
+Literature Review,Academic
+Data Collection,Academic
+Survey Design,Academic
+Statistical Modeling,Academic
+SPSS,Academic
