@@ -1,0 +1,259 @@
+[
+    {
+        "student_skills": [
+            "pandas",
+            "teamwork",
+            "matplotlib",
+            "python",
+            "git",
+            "data analysis",
+            "communication",
+            "numpy",
+            "scikit-learn",
+            "sql"
+        ],
+        "job_skills": [
+            "teamwork",
+            "leadership",
+            "aws",
+            "scrum",
+            "problem solving",
+            "project management",
+            "research",
+            "data analysis",
+            "embedded systems",
+            "communication",
+            "azure"
+        ],
+        "matched": [
+            "data analysis",
+            "teamwork",
+            "communication"
+        ],
+        "missing": [
+            "leadership",
+            "scrum",
+            "aws",
+            "problem solving",
+            "project management",
+            "research",
+            "embedded systems",
+            "azure"
+        ],
+        "extra": [
+            "pandas",
+            "matplotlib",
+            "python",
+            "git",
+            "numpy",
+            "scikit-learn",
+            "sql"
+        ],
+        "match_score": 27.27,
+        "matched_count": 3,
+        "missing_count": 8,
+        "total_required": 11,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: leadership",
+            "Learn: scrum",
+            "Learn: aws",
+            "Learn: problem solving",
+            "Learn: project management",
+            "Learn: research",
+            "Learn: embedded systems",
+            "Learn: azure"
+        ],
+        "date": "2026-09-27 12:41",
+        "job_title": "Data Scientist - Clearance Required with Security Clearance",
+        "company": "ClearanceJobs"
+    },
+    {
+        "student_skills": [
+            "pandas",
+            "teamwork",
+            "matplotlib",
+            "python",
+            "git",
+            "data analysis",
+            "communication",
+            "numpy",
+            "scikit-learn",
+            "sql"
+        ],
+        "job_skills": [
+            "teamwork",
+            "next.js",
+            "attention to detail",
+            "statistical analysis",
+            "natural language processing",
+            "problem solving",
+            "machine learning",
+            "adaptability"
+        ],
+        "matched": [
+            "teamwork"
+        ],
+        "missing": [
+            "next.js",
+            "attention to detail",
+            "statistical analysis",
+            "natural language processing",
+            "problem solving",
+            "machine learning",
+            "adaptability"
+        ],
+        "extra": [
+            "pandas",
+            "matplotlib",
+            "python",
+            "git",
+            "data analysis",
+            "communication",
+            "numpy",
+            "scikit-learn",
+            "sql"
+        ],
+        "match_score": 12.5,
+        "matched_count": 1,
+        "missing_count": 7,
+        "total_required": 8,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: next.js",
+            "Learn: attention to detail",
+            "Learn: statistical analysis",
+            "Learn: natural language processing",
+            "Learn: problem solving",
+            "Learn: machine learning",
+            "Learn: adaptability"
+        ],
+        "date": "2026-09-27 12:43",
+        "job_title": "Data scientist intern",
+        "company": "AstrumU\u00ae"
+    },
+    {
+        "student_skills": [
+            "scikit-learn",
+            "data analysis",
+            "communication",
+            "git",
+            "numpy",
+            "python",
+            "matplotlib",
+            "teamwork",
+            "sql",
+            "pandas"
+        ],
+        "job_skills": [
+            "creativity",
+            "data analysis",
+            "statistical analysis",
+            "python",
+            "critical thinking",
+            "attention to detail",
+            "data visualization",
+            "problem solving"
+        ],
+        "matched": [
+            "data analysis",
+            "python"
+        ],
+        "missing": [
+            "creativity",
+            "statistical analysis",
+            "critical thinking",
+            "attention to detail",
+            "data visualization",
+            "problem solving"
+        ],
+        "extra": [
+            "scikit-learn",
+            "git",
+            "communication",
+            "numpy",
+            "matplotlib",
+            "teamwork",
+            "sql",
+            "pandas"
+        ],
+        "match_score": 25.0,
+        "matched_count": 2,
+        "missing_count": 6,
+        "total_required": 8,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: creativity",
+            "Learn: statistical analysis",
+            "Learn: critical thinking",
+            "Learn: attention to detail",
+            "Learn: data visualization",
+            "Learn: problem solving"
+        ],
+        "date": "2026-09-27 12:53",
+        "job_title": "Data Science Intern",
+        "company": "Drinkun Inc"
+    },
+    {
+        "student_skills": [
+            "teamwork",
+            "python",
+            "numpy",
+            "data analysis",
+            "sql",
+            "pandas",
+            "git",
+            "scikit-learn",
+            "communication",
+            "matplotlib"
+        ],
+        "job_skills": [
+            "python",
+            "data analysis",
+            "creativity",
+            "attention to detail",
+            "critical thinking",
+            "statistical analysis",
+            "data visualization",
+            "problem solving"
+        ],
+        "matched": [
+            "data analysis",
+            "python"
+        ],
+        "missing": [
+            "attention to detail",
+            "creativity",
+            "critical thinking",
+            "statistical analysis",
+            "data visualization",
+            "problem solving"
+        ],
+        "extra": [
+            "teamwork",
+            "numpy",
+            "pandas",
+            "sql",
+            "git",
+            "scikit-learn",
+            "communication",
+            "matplotlib"
+        ],
+        "match_score": 38.46,
+        "matched_count": 2,
+        "missing_count": 6,
+        "total_required": 8,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: attention to detail",
+            "Learn: creativity",
+            "Learn: critical thinking",
+            "Learn: statistical analysis",
+            "Learn: data visualization",
+            "Learn: problem solving"
+        ],
+        "date": "2026-09-27 18:44",
+        "job_title": "Data Science Intern",
+        "company": "Drinkun Inc"
+    }
+]

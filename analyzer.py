@@ -16,6 +16,7 @@ class Analyzer:
         self.data_manager = data_manager
         self.skills_list = data_manager.get_skills_list()
         self.aliases = data_manager.get_aliases()
+        self.skill_categories = data_manager.get_skills_with_categories()
         self.lemmatizer = WordNetLemmatizer()
         self.stop_words = set(stopwords.words('english'))
 
@@ -92,7 +93,24 @@ class Analyzer:
     def calculate_score(self, matched, job_skills):
         if len(job_skills) == 0:
             return 0
-        score = (len(matched) / len(job_skills)) * 100
+
+        HARD_WEIGHT = 1.0
+        SOFT_WEIGHT = 0.3
+
+        weighted_matched = 0
+        weighted_total = 0
+
+        for skill in job_skills:
+            category = self.skill_categories.get(skill, 'Unknown')
+            weight = SOFT_WEIGHT if category == 'Soft Skill' else HARD_WEIGHT
+            weighted_total += weight
+            if skill in matched:
+                weighted_matched += weight
+
+        if weighted_total == 0:
+            return 0
+
+        score = (weighted_matched / weighted_total) * 100
         return round(score, 2)
 
     # ----------------------------------------

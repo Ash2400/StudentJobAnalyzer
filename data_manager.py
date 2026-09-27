@@ -166,3 +166,9 @@ class DataManager:
     # ----------------------------------------
     def get_jobs(self):
         return self.jobs_df
+    
+    def get_skills_with_categories(self):
+        return dict(zip(
+            self.skills_df['skill'],
+            self.skills_df['category']
+        ))
