@@ -258,5 +258,190 @@
         "date": "2026-09-23 13:11",
         "job_title": "Staff Data Scientist, Ecosystem",
         "company": "Dice"
+    },
+    {
+        "student_skills": [
+            "python",
+            "leadership",
+            "communication",
+            "php",
+            "sql"
+        ],
+        "job_skills": [
+            "python",
+            "computer vision",
+            "numpy",
+            "convolutional neural networks",
+            "git",
+            "ci/cd",
+            "pytorch",
+            "deep learning",
+            "neural networks",
+            "rest api",
+            "tensorflow",
+            "transfer learning",
+            "machine learning"
+        ],
+        "matched": [
+            "python"
+        ],
+        "missing": [
+            "computer vision",
+            "numpy",
+            "convolutional neural networks",
+            "git",
+            "ci/cd",
+            "pytorch",
+            "deep learning",
+            "neural networks",
+            "rest api",
+            "tensorflow",
+            "transfer learning",
+            "machine learning"
+        ],
+        "extra": [
+            "php",
+            "leadership",
+            "sql",
+            "communication"
+        ],
+        "match_score": 7.69,
+        "matched_count": 1,
+        "missing_count": 12,
+        "total_required": 13,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: computer vision",
+            "Learn: numpy",
+            "Learn: convolutional neural networks",
+            "Learn: git",
+            "Learn: ci/cd",
+            "Learn: pytorch",
+            "Learn: deep learning",
+            "Learn: neural networks",
+            "Learn: rest api",
+            "Learn: tensorflow",
+            "Learn: transfer learning",
+            "Learn: machine learning"
+        ],
+        "date": "2026-09-27 12:10",
+        "job_title": "Machine Learning Engineer",
+        "company": "Jobot"
+    },
+    {
+        "student_skills": [
+            "python",
+            "communication",
+            "git",
+            "pandas",
+            "sql",
+            "machine learning"
+        ],
+        "job_skills": [
+            "java",
+            "decision making",
+            "python",
+            "communication",
+            "leadership",
+            "c++",
+            "mongodb",
+            "collaboration",
+            "sql",
+            "next.js",
+            "aws"
+        ],
+        "matched": [
+            "sql",
+            "python",
+            "communication"
+        ],
+        "missing": [
+            "java",
+            "decision making",
+            "leadership",
+            "c++",
+            "mongodb",
+            "collaboration",
+            "next.js",
+            "aws"
+        ],
+        "extra": [
+            "pandas",
+            "machine learning",
+            "git"
+        ],
+        "match_score": 27.27,
+        "matched_count": 3,
+        "missing_count": 8,
+        "total_required": 11,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: java",
+            "Learn: decision making",
+            "Learn: leadership",
+            "Learn: c++",
+            "Learn: mongodb",
+            "Learn: collaboration",
+            "Learn: next.js",
+            "Learn: aws"
+        ],
+        "date": "2026-09-27 12:17",
+        "job_title": "Data Science- Senior Associate",
+        "company": "Webull Financial"
+    },
+    {
+        "student_skills": [
+            "git",
+            "python",
+            "communication",
+            "pandas",
+            "sql"
+        ],
+        "job_skills": [
+            "machine learning",
+            "attention to detail",
+            "go",
+            "next.js",
+            "research",
+            "quality assurance",
+            "social media marketing",
+            "adaptability"
+        ],
+        "matched": [],
+        "missing": [
+            "machine learning",
+            "attention to detail",
+            "go",
+            "next.js",
+            "research",
+            "quality assurance",
+            "social media marketing",
+            "adaptability"
+        ],
+        "extra": [
+            "git",
+            "python",
+            "communication",
+            "pandas",
+            "sql"
+        ],
+        "match_score": 0.0,
+        "matched_count": 0,
+        "missing_count": 8,
+        "total_required": 8,
+        "recommendation_message": "Low match. Significant preparation needed.",
+        "recommendations": [
+            "Learn: machine learning",
+            "Learn: attention to detail",
+            "Learn: go",
+            "Learn: next.js",
+            "Learn: research",
+            "Learn: quality assurance",
+            "Learn: social media marketing",
+            "Learn: adaptability"
+        ],
+        "date": "2026-09-27 12:32",
+        "job_title": "Online Data Analyst",
+        "company": "TELUS International AI Data Solutions"
     }
 ]

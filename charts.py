@@ -27,39 +27,9 @@ class Charts:
         plt.close()
         print(f"[OK] Chart saved → {path}")
 
+    
     # ----------------------------------------
-    # Chart 1 — Match Score Bar Chart
-    # ----------------------------------------
-    def plot_match_score(self, matched, missing):
-        labels = ['Matched Skills', 'Missing Skills']
-        values = [len(matched), len(missing)]
-        colors = ['#2ecc71', '#e74c3c']
-
-        plt.figure(figsize=(8, 5))
-        bars = plt.bar(labels, values, color=colors, width=0.4)
-
-        for bar, val in zip(bars, values):
-            plt.text(
-                bar.get_x() + bar.get_width() / 2,
-                bar.get_height() + 0.1,
-                str(val),
-                ha='center',
-                fontsize=12,
-                fontweight='bold'
-            )
-
-        plt.title(
-            f'Skill Match Overview — {self.student_name.title()}',
-            fontsize=14,
-            fontweight='bold'
-        )
-        plt.ylabel('Number of Skills')
-        plt.ylim(0, max(values) + 2)
-        plt.tight_layout()
-        self.save_figure('match_chart.png')
-
-    # ----------------------------------------
-    # Chart 2 — Algorithm Comparison Bar Chart
+    # Chart 1 — Algorithm Comparison Bar Chart
     # ----------------------------------------
     def plot_algorithm_comparison(self, metrics_list):
         algorithms = []
@@ -103,7 +73,7 @@ class Charts:
         self.save_figure('algorithm_comparison.png')
 
     # ----------------------------------------
-    # Chart 3 — Confusion Matrix Heatmap
+    # Chart 2 — Confusion Matrix Heatmap
     # ----------------------------------------
     def plot_confusion_matrix(self, model):
         cm = model.get_confusion_matrix()
@@ -136,7 +106,7 @@ class Charts:
         self.save_figure(filename)
 
     # ----------------------------------------
-    # Chart 4 — Missing Skills Frequency
+    # Chart 3 — Missing Skills Frequency
     # ----------------------------------------
     def plot_missing_skills(self, history):
         if not history:
@@ -184,7 +154,7 @@ class Charts:
         self.save_figure('missing_skills.png')
 
     # ----------------------------------------
-    # Chart 5 — Score Progress Over Time
+    # Chart 4 — Score Progress Over Time
     # ----------------------------------------
     def plot_score_progress(self, history):
         if len(history) < 2:
@@ -218,3 +188,42 @@ class Charts:
         plt.grid(alpha=0.3)
         plt.tight_layout()
         self.save_figure('score_progress.png')
+
+    # ----------------------------------------
+    # Chart — Field Comparison
+    # ----------------------------------------
+    def plot_field_comparison(self, field_results):
+        fields = [r['field'] for r in field_results]
+        scores = [r['avg_score'] for r in field_results]
+
+        colors = []
+        for score in scores:
+            if score >= 70:
+                colors.append('#2ecc71')
+            elif score >= 50:
+                colors.append('#f39c12')
+            else:
+                colors.append('#e74c3c')
+
+        plt.figure(figsize=(12, 6))
+        bars = plt.barh(fields, scores, color=colors)
+
+        for bar, score in zip(bars, scores):
+            plt.text(
+                bar.get_width() + 0.5,
+                bar.get_y() + bar.get_height() / 2,
+                f'{score}%',
+                va='center',
+                fontsize=10
+            )
+
+        plt.title(
+            f'Field Match Scores — {self.student_name.title()}',
+            fontsize=14,
+            fontweight='bold'
+        )
+        plt.xlabel('Average Match Score (%)')
+        plt.xlim(0, 110)
+        plt.gca().invert_yaxis()
+        plt.tight_layout()
+        self.save_figure('field_comparison.png')
