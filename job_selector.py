@@ -58,17 +58,17 @@ class JobSelector:
     def select_job(self, field):
         jobs = self.get_jobs_by_field(field)
 
-        print("\n" + "=" * 55)
+        print("\n" + "=" * 75)
         print(f"  JOBS IN {field.upper()}")
-        print("=" * 55)
+        print("=" * 75)
+        print(f"\n  {'#':<4} {'Company':<25} {'Level':<15} {'Title':<30}")
+        print(f"  {'─'*4} {'─'*25} {'─'*15} {'─'*30}")
 
         for i, row in jobs.iterrows():
-            # truncate long titles and company names
-            company = row['company'][:20]
-            title = row['title'][:35]
+            company = row['company'][:23]
+            title = row['title'][:28]
             level = row['level']
 
-            # simplify level display
             if 'Entry' in level:
                 level_short = 'Entry'
             elif 'Mid' in level:
@@ -84,9 +84,9 @@ class JobSelector:
             else:
                 level_short = 'Open'
 
-            print(f"\n  {i+1:>2}. {company:<22} [{level_short}]")
-            print(f"      {title}")
+            print(f"  {i+1:<4} {company:<25} {level_short:<15} {title:<30}")
 
+        print(f"  {'─'*75}")
         print()
         while True:
             try:
