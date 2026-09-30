@@ -58,7 +58,19 @@ class Analyzer:
             if ' ' in skill and skill in text:
                 found_skills.add(skill)
 
-        return found_skills
+         # prioritize technical skills over soft skills
+        technical = {
+            s for s in found_skills
+            if self.skill_categories.get(s, '') != 'Soft Skill'
+        }
+        soft = {
+            s for s in found_skills
+            if self.skill_categories.get(s, '') == 'Soft Skill'
+        }
+
+        # cap at 15 total, technical skills first
+        combined = list(technical) + list(soft)
+        return set(combined[:15])
 
     # ----------------------------------------
     # Process student skills input
@@ -68,16 +80,35 @@ class Analyzer:
         processed = set()
         for skill in skills:
             skill = skill.strip().lower()
-            # check alias
             if skill in self.aliases:
                 skill = self.aliases[skill].lower()
-            # check if valid skill
             if skill in self.skills_list:
                 processed.add(skill)
             else:
                 print(f"  [!] '{skill}' not recognized — skipped")
-        return processed
 
+        # expand student skills with implied skills
+        implied = {
+            'matplotlib': ['data visualization'],
+            'seaborn': ['data visualization'],
+            'numpy': ['statistical analysis'],
+            'pandas': ['data analysis'],
+            'scikit-learn': ['machine learning'],
+            'tensorflow': ['machine learning', 'deep learning'],
+            'pytorch': ['machine learning', 'deep learning'],
+            'keras': ['deep learning', 'machine learning'],
+            'tableau': ['data visualization'],
+            'power bi': ['data visualization'],
+        }
+
+        expanded = set(processed)
+        for skill in processed:
+            if skill in implied:
+                for implied_skill in implied[skill]:
+                    if implied_skill in self.skills_list:
+                        expanded.add(implied_skill)
+
+        return expanded
     # ----------------------------------------
     # Compare student skills vs job skills
     # ----------------------------------------
