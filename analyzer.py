@@ -87,7 +87,6 @@ class Analyzer:
             else:
                 print(f"  [!] '{skill}' not recognized — skipped")
 
-        # expand student skills with implied skills
         implied = {
             'matplotlib': ['data visualization'],
             'seaborn': ['data visualization'],
@@ -99,6 +98,14 @@ class Analyzer:
             'keras': ['deep learning', 'machine learning'],
             'tableau': ['data visualization'],
             'power bi': ['data visualization'],
+            'postgresql': ['sql'],
+            'mysql': ['sql'],
+            'docker': ['devops'],
+            'kubernetes': ['devops'],
+            'jenkins': ['ci/cd'],
+            'react': ['javascript'],
+            'django': ['python'],
+            'flask': ['python'],
         }
 
         expanded = set(processed)

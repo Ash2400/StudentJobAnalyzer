@@ -126,7 +126,7 @@ def analyze_job(analyzer, models, dm, ch, js):
     ch.plot_algorithm_comparison(
         [m.get_metrics() for m in models]
     )
-    ch.plot_confusion_matrix(models[0])
+     
     history = dm.get_history()
     ch.plot_missing_skills(history)
     ch.plot_score_progress(history)
