@@ -49,36 +49,43 @@ def get_student_skills():
 # HELPER — Print analysis results
 # ============================================
 def print_results(result, job_title, company):
-    print_separator("ANALYSIS RESULTS")
+    score = result['match_score']
+    
+    # score indicator
+    if score >= 70:
+        indicator = "🟢"
+    elif score >= 40:
+        indicator = "🟡"
+    else:
+        indicator = "🔴"
 
-    print(f"\n  Job:     {job_title}")
-    print(f"  Company: {company}")
-    print(f"\n  Match Score: {result['match_score']}%")
+    print("\n" + "=" * 55)
+    print(f"  {company} — {job_title}")
+    print("=" * 55)
+    print(f"\n  Match Score: {score}% {indicator}")
+    print(f"  {'Strong match' if score >= 70 else 'Moderate match' if score >= 40 else 'Low match'}")
 
-    print(f"\n  Matched Skills ({len(result['matched'])}):")
+    print(f"\n  ✓ Matched ({len(result['matched'])}):", end=" ")
     if result['matched']:
-        for skill in sorted(result['matched']):
-            print(f"    ✓ {skill}")
+        print(", ".join(sorted(result['matched'])))
     else:
-        print("    None")
+        print("None")
 
-    print(f"\n  Missing Skills ({len(result['missing'])}):")
+    print(f"\n  ✗ Missing ({len(result['missing'])}):", end=" ")
     if result['missing']:
-        for skill in sorted(result['missing']):
-            print(f"    ✗ {skill}")
+        print(", ".join(sorted(result['missing'])))
     else:
-        print("    None — perfect match!")
+        print("None — perfect match!")
 
     if result['extra']:
-        print(f"\n  Extra Skills You Have ({len(result['extra'])}):")
-        for skill in sorted(result['extra']):
-            print(f"    + {skill}")
+        print(f"\n  + Extra ({len(result['extra'])}):", end=" ")
+        print(", ".join(sorted(result['extra'])))
 
 # ============================================
 # HELPER — Print ML predictions
 # ============================================
 def print_predictions(models, result):
-    print_separator("ML PREDICTIONS")
+    predictions = []
     for model in models:
         prediction, confidence = model.predict(
             result['match_score'],
@@ -87,18 +94,19 @@ def print_predictions(models, result):
             result['total_required']
         )
         name = model.algorithm.replace('_', ' ').title()
-        print(f"\n  {name:<25} → {prediction} ({confidence}% confident)")
+        predictions.append(f"{name}: {prediction} ({confidence}%)")
+
+    print(f"\n  ML: {' | '.join(predictions)}")
 
 # ============================================
 # HELPER — Print recommendations
 # ============================================
 def print_recommendations(result):
-    print_separator("RECOMMENDATION")
-    print(f"\n  {result['recommendation_message']}")
-    if result['recommendations']:
-        print("\n  Skills to learn next:")
-        for i, rec in enumerate(result['recommendations'], 1):
-            print(f"    {i}. {rec}")
+    print(f"\n  💡 {result['recommendation_message']}")
+    if result['missing']:
+        top3 = sorted(result['missing'])[:3]
+        print(f"  Learn next: {', '.join(top3)}")
+    print("=" * 55)
 
 # ============================================
 # FEATURE 1 — Analyze a job
