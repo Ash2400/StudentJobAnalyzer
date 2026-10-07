@@ -143,8 +143,9 @@ class App:
         self.finder_dd = ttk.Combobox(ff, textvariable=self.finder_var,
                                       width=28, state="disabled", font=self.FONT)
         self.finder_dd.grid(row=0, column=1, padx=8, sticky="w")
-        self.mk_btn(ff, "Analyze Fields", self.find_field, self.ORANGE).grid(
-            row=0, column=2, padx=8)
+        self.analyze_fields_btn = self.mk_btn(
+            ff, "Analyze Fields", self.find_field, self.ORANGE)
+        self.analyze_fields_btn.grid(row=0, column=2, padx=8)
 
         # buttons row
         bf = tk.Frame(f, bg=self.BG)
@@ -305,10 +306,11 @@ class App:
         selection = self.finder_var.get()
         self.display("Analyzing fields... please wait (30-60 seconds).")
         self.status.set("Analyzing fields...")
-        self.root.update()
+        self.analyze_fields_btn.config(state="disabled")
 
         def run():
             try:
+                results = None
                 if selection == 'All Fields':
                     results = self.ff.analyze_all_fields(skills)
                     out = "="*50 + "\nFIELD MATCH RESULTS\n" + "="*50 + "\n\n"
@@ -316,16 +318,15 @@ class App:
                     for r in results:
                         bar = '█' * int(r['avg_score'] / 5)
                         out += f"{r['field']:<25} {r['avg_score']:>6}%  {bar}\n"
-                    best = results[0]
-                    out += f"\n🎯 Best Field: {best['field']} ({best['avg_score']}%)\n"
-                    if best['best_job']:
-                        out += f"Best Job: {best['best_job']['company']} — {best['best_job']['title']}\n"
-                    if best['top_missing']:
-                        out += "\nTop skills to learn:\n"
-                        for i, (s, c) in enumerate(best['top_missing'][:5], 1):
-                            out += f"  {i}. {s} (missing in {c} jobs)\n"
                     if results:
-                        self.ch.plot_field_comparison(results)
+                        best = results[0]
+                        out += f"\n🎯 Best Field: {best['field']} ({best['avg_score']}%)\n"
+                        if best['best_job']:
+                            out += f"Best Job: {best['best_job']['company']} — {best['best_job']['title']}\n"
+                        if best['top_missing']:
+                            out += "\nTop skills to learn:\n"
+                            for i, (s, c) in enumerate(best['top_missing'][:5], 1):
+                                out += f"  {i}. {s} (missing in {c} jobs)\n"
                 else:
                     result = self.ff.analyze_field(skills, selection)
                     out = "="*50 + f"\nFIELD: {selection.upper()}\n" + "="*50 + "\n\n"
@@ -341,12 +342,28 @@ class App:
                             out += "\nTop missing skills:\n"
                             for i, (sk, c) in enumerate(result['top_missing'][:5], 1):
                                 out += f"  {i}. {sk}\n"
-                self.root.after(0, lambda: self.display(out))
-                self.root.after(0, lambda: self.status.set("Field analysis complete."))
+                # hand everything back to the main thread (plotting included)
+                self.root.after(0, lambda: self.on_field_done(out, results))
             except Exception as e:
-                self.root.after(0, lambda: messagebox.showerror("Error", str(e)))
+                msg = str(e)  # capture now, 'e' is deleted after this block
+                self.root.after(0, lambda: self.on_field_error(msg))
 
         threading.Thread(target=run, daemon=True).start()
+
+    def on_field_done(self, out, results):
+        self.display(out)
+        if results:
+            try:
+                self.ch.plot_field_comparison(results)  # runs on main thread
+            except Exception as e:
+                messagebox.showerror("Chart error", str(e))
+        self.status.set("Field analysis complete.")
+        self.analyze_fields_btn.config(state="normal")
+
+    def on_field_error(self, msg):
+        messagebox.showerror("Error", msg)
+        self.status.set("Field analysis failed.")
+        self.analyze_fields_btn.config(state="normal")
 
     def view_progress(self):
         if not self.dm:

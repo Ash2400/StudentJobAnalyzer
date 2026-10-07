@@ -1,11 +1,12 @@
 # charts.py
 # Responsible for generating and saving all charts
 
+import matplotlib
+matplotlib.use("Agg")  # must come before pyplot/seaborn so Tk is never involved
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 import os
-
 # ============================================
 # CLASS — Charts
 # ============================================
